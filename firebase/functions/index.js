@@ -5,15 +5,26 @@ admin.initializeApp();
 exports.notificacionCrear = functions.firestore
   .document('jugadores/{id}')
   .onCreate((snap , context ) => { 
+    const jugador = snap.data();
+
     const message = {
         notification: {
           title: "create",
         },
         topic: "frontmobi",
         data: {
-            type: "create",
-            id: context.params.id,
-          },
+          type: "create",
+          id: context.params.id,
+          Nombre: jugador.Nombre,
+          Dorsal: jugador.Dorsal.toString(),
+          Posicion: jugador.Posicion,
+          Edad: jugador.Edad.toString(),
+          Altura: jugador.Altura,
+          Nacionalidad: jugador.Nacionalidad,
+          Descripcion: jugador.Descripcion,
+          Image: jugador.Image || '',
+          Video: jugador.Video || '',
+        },
       };
 
       return admin.messaging().send(message)
@@ -25,15 +36,26 @@ exports.notificacionCrear = functions.firestore
 exports.notificacionActualizar =  functions.firestore
 .document('jugadores/{id}')
 .onUpdate((change , context ) => { 
+  const jugador = change.after.data();
+
     const message = {
         notification: {
           title: "update",
         },
         topic: "frontmobi",
         data: {
-            type: "update",
-            id: context.params.id,
-          },
+          type: "update",
+          id: context.params.id,
+          Nombre: jugador.Nombre,
+          Dorsal: jugador.Dorsal.toString(),
+          Posicion: jugador.Posicion,
+          Edad: jugador.Edad.toString(),
+          Altura: jugador.Altura,
+          Nacionalidad: jugador.Nacionalidad,
+          Descripcion: jugador.Descripcion,
+          Image: jugador.Image || '',
+          Video: jugador.Video || '',
+        },
       };
 
         return admin.messaging().send(message)
