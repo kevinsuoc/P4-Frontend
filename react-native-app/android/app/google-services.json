@@ -1,0 +1,30 @@
+{
+    "project_info": {
+      "project_number": "892525709028",
+      "firebase_url": "https://uoc-frontmobi-default-rtdb.firebaseio.com",
+      "project_id": "uoc-frontmobi",
+      "storage_bucket": "uoc-frontmobi.firebasestorage.app"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:892525709028:android:a7d4176f4ab111b95f4ef1",
+          "android_client_info": {
+            "package_name": "com.FrontMobi.EquipoBasket"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyCRVuFXfY73FiO5tSnQkCF2M-q6uOxt5Ls"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }

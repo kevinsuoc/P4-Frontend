@@ -1,0 +1,174 @@
+{
+    "jugadores": [
+        {
+            "id": 1,
+            "Dorsal": 1,
+            "Posicion": "Alero",
+            "Nombre": "Justin Anderson",
+            "Altura": "1.98 m",
+            "Nacionalidad": "EE.UU.",
+            "Edad": 31,
+            "Descripcion": "Justin Anderson es un alero estadounidense con una gran capacidad para anotar y defender. Con una carrera destacada, ha jugado en diversos equipos de la NBA y la liga de baloncesto europea."
+        },
+        {
+            "id": 2,
+            "Dorsal": 2,
+            "Posicion": "Escolta",
+            "Nombre": "Dame Sarr",
+            "Altura": "1.98 m",
+            "Nacionalidad": "Italia",
+            "Edad": 18,
+            "Descripcion": "Dame Sarr es un joven escolta italiano con gran capacidad atlética y una excelente proyección en el baloncesto europeo."
+        },
+        {
+            "id": 3,
+            "Dorsal": 6,
+            "Posicion": "Pívot",
+            "Nombre": "Jan Vesely",
+            "Altura": "2.10 m",
+            "Nacionalidad": "Chequia",
+            "Edad": 34,
+            "Descripcion": "Jan Vesely es un pívot checo con una amplia trayectoria en Europa y la NBA. Destacado por su juego físico y versatilidad en la pintura, ha sido una pieza clave en los equipos en los que ha jugado."
+        },
+        {
+            "id": 4,
+            "Dorsal": 8,
+            "Posicion": "Escolta",
+            "Nombre": "Darío Brizuela",
+            "Altura": "1.88 m",
+            "Nacionalidad": "España",
+            "Edad": 30,
+            "Descripcion": "Darío Brizuela es un escolta español con un gran talento ofensivo. Su rapidez, capacidad de anotación y habilidad en el uno contra uno lo han convertido en un referente en la liga española y en la selección nacional."
+        },
+        {
+            "id": 5,
+            "Dorsal": 10,
+            "Posicion": "Ala-pívot",
+            "Nombre": "Chimezie Metu",
+            "Altura": "2.08 m",
+            "Nacionalidad": "Nigeria",
+            "Edad": 27,
+            "Descripcion": "Chimezie Metu es un ala-pívot nigeriano con experiencia en la NBA y Europa. Destaca por su atletismo, capacidad defensiva y versatilidad en ataque, lo que lo convierte en un jugador valioso en cualquier equipo."
+        },
+        {
+            "id": 6,
+            "Dorsal": 13,
+            "Posicion": "Base",
+            "Nombre": "Tomas Satoransky",
+            "Altura": "2.01 m",
+            "Nacionalidad": "Chequia",
+            "Edad": 33,
+            "Descripcion": "Tomas Satoransky es un base checo con gran visión de juego y habilidades defensivas. Su experiencia en la NBA y Europa lo han consolidado como un líder en la cancha y un referente en la dirección del juego."
+        },
+        {
+            "id": 7,
+            "Dorsal": 14,
+            "Posicion": "Pívot",
+            "Nombre": "Willy Hernangómez",
+            "Altura": "2.10 m",
+            "Nacionalidad": "España",
+            "Edad": 30,
+            "Descripcion": "Willy Hernangómez es un pívot español con experiencia en la NBA y la ACB. Destacado por su capacidad reboteadora y talento ofensivo, ha sido una pieza clave tanto en su club como en la selección española."
+        },
+        {
+            "id": 8,
+            "Dorsal": 17,
+            "Posicion": "Base",
+            "Nombre": "Juan Núñez",
+            "Altura": "1.91 m",
+            "Nacionalidad": "España",
+            "Edad": 20,
+            "Descripcion": "Juan Núñez es un joven base español con un gran futuro por delante. Destacado por su visión de juego, capacidad de dirección y habilidad para anotar. Ha sido parte fundamental de la cantera del FC Barcelona, destacándose por su madurez en la cancha pese a su corta edad."
+        },
+        {
+            "id": 9,
+            "Dorsal": 19,
+            "Posicion": "Pívot",
+            "Nombre": "Youssoupha Fall",
+            "Altura": "2.21 m",
+            "Nacionalidad": "Francia",
+            "Edad": 30,
+            "Descripcion": "Youssoupha Fall es un imponente pívot senegalés conocido por su altura y presencia en la pintura. Con una gran capacidad para defender y capturar rebotes, se ha consolidado como una pieza clave en el juego interior del FC Barcelona. Además, su destreza para anotar cerca del aro lo convierte en un jugador fundamental en ambos extremos de la cancha."
+        },
+        {
+            "id": 10,
+            "Dorsal": 20,
+            "Posicion": "Base",
+            "Nombre": "Nico Laprovittola",
+            "Altura": "1.90 m",
+            "Nacionalidad": "Italia",
+            "Edad": 35,
+            "Descripcion": "Nico Laprovittola es un experimentado base argentino, conocido por su gran visión de juego, habilidades para dirigir el ataque y capacidad para anotar puntos decisivos. Ha sido una pieza clave tanto en la selección argentina como en el FC Barcelona, destacándose por su inteligencia en la cancha y su capacidad para manejar el ritmo del partido."
+        },
+        {
+            "id": 11,
+            "Dorsal": 21,
+            "Posicion": "Escolta",
+            "Nombre": "Álex Abrines",
+            "Altura": "1.98 m",
+            "Nacionalidad": "España",
+            "Edad": 31,
+            "Descripcion": "Álex Abrines es un talentoso alero español, reconocido por su capacidad de anotación, especialmente desde la línea de tres puntos. Con experiencia en la NBA y una destacada trayectoria en la ACB, es un jugador versátil y un referente en el juego exterior del FC Barcelona. Su visión de juego y capacidad defensiva lo convierten en un miembro valioso del equipo."
+        },
+        {
+            "id": 12,
+            "Dorsal": 22,
+            "Posicion": "Ala-pívot",
+            "Nombre": "Jabari Parker",
+            "Altura": "2.03 m",
+            "Nacionalidad": "EE.UU.",
+            "Edad": 29,
+            "Descripcion": "Jabari Parker es un talentoso jugador estadounidense que se destaca por su versatilidad en la cancha, capaz de jugar tanto de alero como de ala-pívot. Con una gran capacidad anotadora y un sólido juego ofensivo, ha jugado en diversas franquicias de la NBA antes de unirse al FC Barcelona. Su habilidad para adaptarse a diferentes estilos de juego lo convierte en un valioso refuerzo para el equipo."
+        },
+        {
+            "id": 13,
+            "Dorsal": 41,
+            "Posicion": "Pívot",
+            "Nombre": "Sayon Keita",
+            "Altura": "2.12 m",
+            "Nacionalidad": "Malí",
+            "Edad": 17,
+            "Descripcion": "Sayon Keita es un prometedor alero español, conocido por su gran capacidad atlética y su habilidad para anotar desde el perímetro. A pesar de su juventud, ha demostrado un gran potencial en la cantera del FC Barcelona. Su rapidez y versatilidad le permiten contribuir tanto en ataque como en defensa, y se espera que tenga un futuro brillante en el baloncesto profesional."
+        },
+        {
+            "id": 14,
+            "Dorsal": 43,
+            "Posicion": "Alero",
+            "Nombre": "Arturas Butajevas",
+            "Altura": "2.06 m",
+            "Nacionalidad": "Lituania",
+            "Edad": 17,
+            "Descripcion": "Arturas Butajevas es un prometedor ala-pívot lituano, con un gran futuro en el baloncesto europeo. Destacado por su capacidad para jugar cerca del aro, su versatilidad y habilidades defensivas. A pesar de su corta edad, ha mostrado una madurez impresionante en su juego, siendo una pieza importante tanto en ataque como en defensa para el FC Barcelona."
+        },
+        {
+            "id": 15,
+            "Dorsal": 44,
+            "Posicion": "Alero",
+            "Nombre": "Joel Parra",
+            "Altura": "2.02 m",
+            "Nacionalidad": "España",
+            "Edad": 24,
+            "Descripcion": "Joel Parra es un alero español, conocido por su capacidad defensiva y su habilidad para anotar desde el perímetro. Con un gran potencial y una ética de trabajo ejemplar, ha destacado en la ACB por su capacidad para aportar en ambos extremos de la cancha. Su versatilidad y determinación lo han convertido en un jugador clave dentro del FC Barcelona."
+        },
+        {
+            "id": 16,
+            "Dorsal": 45,
+            "Posicion": "Base",
+            "Nombre": "Raúl Villar",
+            "Altura": "1.90 m",
+            "Nacionalidad": "España",
+            "Edad": 17,
+            "Descripcion": "Raúl Villar es un joven base español, destacado por su gran visión de juego y su capacidad para dirigir el ritmo del partido. A pesar de su corta edad, ha mostrado gran madurez en la cancha, demostrando habilidades tanto para la creación de juego como para la anotación. Con un futuro prometedor, Villar es considerado una de las jóvenes promesas del FC Barcelona."
+        },
+        {
+            "id": 17,
+            "Dorsal": 0,
+            "Posicion": "Escolta",
+            "Nombre": "Kevin Punter",
+            "Altura": "1.93 m",
+            "Nacionalidad": "Serbia",
+            "Edad": 31,
+            "Descripcion": "Kevin Punter es un escolta estadounidense, nacionalizado serbio, que destaca por su capacidad anotadora y su habilidad para crear jugadas ofensivas. Con una gran capacidad para anotar tanto desde el perímetro como en penetración, ha sido un jugador clave en equipos de élite en Europa. Su explosividad y su capacidad para desequilibrar defensas lo convierten en un arma letal en el ataque del FC Barcelona."
+        }
+    ]
+}
