@@ -13,8 +13,7 @@ export class MessagingService {
     ) {
       Notification.requestPermission().then(async (permission) => {
         if (permission === 'granted') {
-          //console.log('✅ Notification permission granted.');
-
+          console.log('Permiso aceptado');
           if (messaging !== null) {
             try {
               const token = await getToken(messaging, {
@@ -23,25 +22,26 @@ export class MessagingService {
               });
 
               if (token) {
-                //console.log('✅ FCM Token:', token);
+                console.log('FCM Token:', token);
                 await subscribeToTopic(token, 'frontmobi'); 
+                console.log("Subscrito a topic")
               } else {
-                console.warn('⚠️ No se pudo obtener el token FCM');
+                console.warn('No se pudo obtener el token FCM');
               }
 
             } catch (err) {
-              console.error('❌ Error al obtener el token FCM:', err);
+              console.error('Error al obtener el token FCM:', err);
             }
           } else {
-            console.warn('❌ Firebase Messaging no inicializado.');
+            console.warn('Firebase Messaging no inicializado.');
           }
 
         } else {
-          console.warn('❌ Notification permission denied.');
+          console.warn('Sin permiso para notificaciones.');
         }
       });
     } else {
-      console.warn('❌ Notifications no soportadas o fuera del navegador.');
+      console.warn('Notifications no soportadas o fuera del navegador.');
     }
   }
 
@@ -49,7 +49,7 @@ export class MessagingService {
   listen() {
     if (typeof window !== 'undefined' && messaging !== null) {
       onMessage(messaging, (payload: any) => {
-        console.log('📥 Mensaje recibido en foreground:', payload);
+        console.log('Mensaje recibido en foreground:', payload);
 
         const title = payload.notification?.title ?? 'Notificación';
         const body = payload.data?.body ?? 'Nuevo mensaje';
@@ -60,7 +60,7 @@ export class MessagingService {
         });
       });
     } else {
-      console.warn('❌ No se puede escuchar mensajes: messaging no inicializado o fuera del navegador.');
+      console.warn('No se puede escuchar mensajes: messaging no inicializado o fuera del navegador.');
     }
   }
 }

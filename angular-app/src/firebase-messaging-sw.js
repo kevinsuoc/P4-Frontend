@@ -15,7 +15,7 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
-  console.log('📩 Mensaje recibido en segundo plano:', payload);
+  console.log('Mensaje recibido en segundo plano:', payload);
   const { title, body } = payload.notification;
 
   self.registration.showNotification(title, {

@@ -17,7 +17,7 @@ if (typeof window !== 'undefined') {
 // Pide permiso y obtiene el token
 export const requestPermission = async (): Promise<string | null> => {
   if (!messaging) {
-    console.warn('❌ Firebase Messaging no está disponible en este entorno.');
+    console.warn('Firebase Messaging no está disponible en este entorno.');
     return null;
   }
 
@@ -28,14 +28,13 @@ export const requestPermission = async (): Promise<string | null> => {
     });
 
     if (currentToken) {
-      //console.log('🎯 Token recibido:', currentToken);
       return currentToken;
     } else {
-      console.warn('⚠️ No se pudo obtener token');
+      console.warn('No se pudo obtener token');
       return null;
     }
   } catch (err) {
-    console.error('❌ Error al obtener token:', err);
+    console.error('Error al obtener token:', err);
     return null;
   }
 };
@@ -43,12 +42,12 @@ export const requestPermission = async (): Promise<string | null> => {
 // Escucha notificaciones en primer plano
 export const listenForegroundMessages = () => {
   if (!messaging) {
-    console.warn('❌ Firebase Messaging no disponible para escuchar mensajes.');
+    console.warn('Firebase Messaging no disponible para escuchar mensajes.');
     return;
   }
 
   onMessage(messaging, (payload) => {
-    console.log('📨 Mensaje en primer plano:', payload);
+    console.log('Mensaje en primer plano:', payload);
     const title = payload.notification?.title ?? 'Notificación';
     const body = payload.notification?.body ?? '';
     new Notification(title, { body });
@@ -61,9 +60,8 @@ export const subscribeToTopic = async (token: string, topic: string) => {
   try {
     const suscribir = httpsCallable(functions, 'subscribeTokenToTopic');
     const result = await suscribir({ token, topic });
-    //console.log('✅ Suscripción exitosa al topic:', result.data);
   } catch (error) {
-    console.error('❌ Error al suscribirse al topic:', error);
+    console.error('Error al suscribirse al topic:', error);
   }
 };
 
