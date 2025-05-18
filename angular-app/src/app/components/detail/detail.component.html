@@ -1,0 +1,124 @@
+<div class="detail-container p-6 bg-white rounded-lg shadow-lg max-w-xl w-full">
+    <div  *ngIf="!edit; else editForm">
+      <h2 class="text-2xl font-bold mb-4 text-center text-blue-600">{{jugador.Nombre}}</h2>
+  
+      <div class="grid grid-cols-2 gap-4 text-gray-700">
+        <p><span class="font-semibold">Posición:</span> {{jugador.Posicion}}</p>
+        <p><span class="font-semibold">Dorsal:</span> {{jugador.Dorsal}}</p>
+        <p><span class="font-semibold">Edad:</span> {{jugador.Edad}}</p>
+        <p><span class="font-semibold">Altura:</span> {{jugador.Altura}}</p>
+        <p><span class="font-semibold">Nacionalidad:</span> {{jugador.Nacionalidad}}</p>
+      </div>
+    
+      <p class="mt-4 text-gray-600"><span class="font-semibold">Descripción:</span> {{jugador.Descripcion}}</p>
+    
+      <div class="mt-4" *ngIf="jugador">
+        <app-media [jugador]="jugador"></app-media>
+      </div>
+    
+      <div class="mt-6 flex justify-between">
+        <!-- Botón eliminar a la izquierda -->
+        <button (click)="eliminarJugador()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">
+          Eliminar
+        </button>
+      
+        <!-- Botones a la derecha -->
+        <div class="flex gap-3">
+          <button (click)="editPlayer()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Editar
+          </button>
+      
+          <button (click)="clearPlayer()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+            Cerrar
+          </button>
+        </div>
+      </div>    
+      
+    </div>
+  </div>
+
+
+  <ng-template #editForm>
+    <div class="w-full">
+      <input class="w-full text-2xl text-center font-bold mb-4 text-blue-600 border-b border-gray-300 focus:outline-none" id="nombre" type="text" [formControl]="nombreControl" />
+      <div *ngIf="nombreControl.invalid && nombreControl.touched" class="text-red-500 text-sm">
+        El nombre es obligatorio.
+      </div>
+    </div>
+  
+    <div class="grid grid-cols-2 gap-4 text-gray-700">
+      <div>
+        <label for="posicion" class="font-semibold">Posición:</label>
+        <select id="posicion" [formControl]="posicionControl" class="w-full border border-gray-300 p-2 rounded">
+          <option *ngFor="let pos of posiciones" [value]="pos">{{ pos }}</option>
+        </select>
+        <div *ngIf="posicionControl.invalid && posicionControl.touched" class="text-red-500 text-sm">
+          La posición es obligatoria.
+        </div>
+      </div>
+  
+      <div>
+        <label for="dorsal" class="font-semibold">Dorsal:</label>
+        <input id="dorsal" type="number" class="w-full border border-gray-300 p-2 rounded" [formControl]="dorsalControl" />
+        <div *ngIf="dorsalControl.invalid && dorsalControl.touched" class="text-red-500 text-sm">
+          El dorsal es obligatorio.
+        </div>
+      </div>
+  
+      <div>
+        <label for="edad" class="font-semibold">Edad:</label>
+        <input id="edad" type="number" class="w-full border border-gray-300 p-2 rounded" [formControl]="edadControl" />
+        <div *ngIf="edadControl.invalid && edadControl.touched" class="text-red-500 text-sm">
+          La edad es obligatoria.
+        </div>
+      </div>
+  
+      <div>
+        <label for="altura" class="font-semibold">Altura:</label>
+        <input id="altura" type="text" class="w-full border border-gray-300 p-2 rounded" [formControl]="alturaControl" />
+        <div *ngIf="alturaControl.invalid && alturaControl.touched" class="text-red-500 text-sm">
+          La altura es obligatoria.
+        </div>
+      </div>
+  
+      <div class="col-span-2">
+        <label for="nacionalidad" class="font-semibold">Nacionalidad:</label>
+        <input id="nacionalidad" type="text" class="w-full border border-gray-300 p-2 rounded" [formControl]="nacionalidadControl" />
+        <div *ngIf="nacionalidadControl.invalid && nacionalidadControl.touched" class="text-red-500 text-sm">
+          La nacionalidad es obligatoria.
+        </div>
+      </div>
+    </div>
+  
+    <div class="mt-4">
+      <label for="descripcion" class="font-semibold text-gray-700">Descripción:</label>
+      <textarea
+        id="descripcion"
+        rows="1"
+        #autoTextarea
+        (input)="autoResizeTextarea(autoTextarea)"
+        class="w-full border border-gray-300 rounded p-2 mt-1 resize-none overflow-hidden leading-tight"
+        [formControl]="descripcionControl"
+      ></textarea>
+      <div *ngIf="descripcionControl.invalid && descripcionControl.touched" class="text-red-500 text-sm">
+        La descripción es obligatoria.
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label class="font-semibold">Imagen</label>
+      <input type="file" (change)="onImageSelected($event)" accept="image/*" class="border p-2 rounded" />
+
+      <label class="font-semibold">Vídeo</label>
+      <input type="file" (change)="onVideoSelected($event)" accept="video/*" class="border p-2 rounded" />
+    </div>
+  
+    <div class="mt-6 flex justify-end">
+      <button (click)="cancelEdit()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 mr-3 rounded">
+        Cancelar
+      </button>
+      <button (click)="acceptEdit()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+        Guardar
+      </button>
+    </div>
+  </ng-template>

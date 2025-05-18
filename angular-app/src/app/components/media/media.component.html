@@ -1,0 +1,22 @@
+<p class="font-semibold text-gray-700">Momentos destacados</p>
+
+<div class="video-container">
+
+  <ng-container *ngIf="jugador.Video; else noVideo">
+      <video
+        controls
+        type="video/mp4"
+        [src]= jugador.Video
+        width="100%"
+        height="315"
+        class="w-full h-[315px] rounded-lg object-cover"
+      >
+        <p class="text-gray-500 text-center">Formato de video no soportado.</p>
+      </video>
+  </ng-container>
+
+  <ng-template #noVideo>
+    <p class="text-gray-500 text-center">No hay video disponible para este jugador.</p>
+  </ng-template>
+
+</div>
