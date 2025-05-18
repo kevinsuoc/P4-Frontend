@@ -12,6 +12,6 @@ export const environment = {
     storageBucket: "uoc-frontmobi.firebasestorage.app",
     messagingSenderId: "892525709028",
     appId: "1:892525709028:web:fc4409e554533d6e5f4ef1",
-    vapidKey: "BKw630KZgGwT9Niu6wn_WomwYYlsM6-6n67tKQcI5HRFrwa7KTtdui5FVmLafvG3rQgae3huyyLFmMYjCsWsI1k"
+    vapidKey: "BD6e79ynnvj_J3J4v9WlV6MGNFAdQP4raa2bS_zc3QmCYpFdfo6eqviTubysH5QQKLCeYGDx5ZkYkfSoWXwJBiM"
   }
 }

@@ -20,7 +20,9 @@ export class AppComponent {
 private messagingService = inject(MessagingService);
 
   ngOnInit(): void {
-    this.messagingService.requestPermission();
-    this.messagingService.listen();
+    if (typeof window !== 'undefined') {
+      this.messagingService.requestPermission();
+      this.messagingService.listen();
+    }
   }
 }

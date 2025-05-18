@@ -86,7 +86,7 @@ export class DetailComponent {
   eliminarJugador() {
     if (confirm("¿Estás seguro de que quieres eliminar a este jugador?")) {
       this.jugadorService.eliminarJugador(this.jugador.id!).then(() => {
-        alert("Jugador eliminado con éxito.");
+        //alert("Jugador eliminado con éxito.");
         this.clearPlayer();
       }).catch((error) => {
         console.error("Error al eliminar el jugador:", error);

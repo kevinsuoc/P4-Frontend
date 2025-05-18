@@ -95,7 +95,7 @@ export class AddPlayerComponent {
 
       await this.jugadorService.insertarJugador(jugador);
 
-      alert('Jugador guardado correctamente');
+      //alert('Jugador guardado correctamente');
       this.jugadorGuardado.emit();
       this.cerrar.emit();
 
