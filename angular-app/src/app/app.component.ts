@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from "./components/header/header.component";
 import { MainComponent } from "./components/main/main.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { MessagingService } from './services/messaging.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +15,12 @@ import { FooterComponent } from "./components/footer/footer.component";
 
 export class AppComponent {
   title = 'front-mobi-p1';
+
+
+private messagingService = inject(MessagingService);
+
+  ngOnInit(): void {
+    this.messagingService.requestPermission();
+    this.messagingService.listen();
+  }
 }

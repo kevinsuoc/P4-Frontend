@@ -3,8 +3,10 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { firebaseConfig } from '@root/.firebase.config';
+//import { firebaseConfig } from '@root/.firebase.config';
+import { firebaseConfig } from '../firebase.config';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideMessaging, getMessaging } from '@angular/fire/messaging';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()) // para guardar archivos
+    provideStorage(() => getStorage()), // para guardar archivos
+    provideMessaging(() => getMessaging())
   ]
 };
