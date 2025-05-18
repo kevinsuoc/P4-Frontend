@@ -2,6 +2,22 @@ const functions = require('firebase-functions/v1');
 const admin = require("firebase-admin");
 admin.initializeApp();
 
+
+exports.subscribeTokenToTopic = functions.https.onCall(async (data, context) => {
+  const token = data.token;
+  const topic = 'frontmobi';
+
+  try {
+    const response = await admin.messaging().subscribeToTopic(token, topic);
+    console.log('Subscrito: ', response);
+    return { success: true, response };
+  } catch (error) {
+    console.error('No subscrito: ', error);
+    throw new functions.https.HttpsError('Error: ', error.message, error);
+  }
+});
+
+
 exports.notificacionCrear = functions.firestore
   .document('jugadores/{id}')
   .onCreate((snap , context ) => { 
@@ -9,7 +25,8 @@ exports.notificacionCrear = functions.firestore
 
     const message = {
         notification: {
-          title: "create",
+          title: `Jugador Creado`,
+          body: `Dorsal ${jugador.Dorsal.toString()}, ${jugador.Nombre}. ${jugador.Edad.toString()} años.`
         },
         topic: "frontmobi",
         data: {
@@ -40,7 +57,8 @@ exports.notificacionActualizar =  functions.firestore
 
     const message = {
         notification: {
-          title: "update",
+          title: `Jugador Actualizado`,
+          body: `${jugador.Nombre}.`
         },
         topic: "frontmobi",
         data: {
@@ -68,7 +86,8 @@ exports.notificacionBorrar = functions.firestore
 .onDelete((snap , context ) => {
     const message = {
         notification: {
-          title: "delete",
+          title: `Jugador Eliminado`,
+          body: `${jugador.Nombre}.`
         },
         topic: "frontmobi",
         data: {
@@ -81,3 +100,6 @@ exports.notificacionBorrar = functions.firestore
         .then(() => {console.log("Notificación enviada correctamente");})
         .catch((error) => {console.error("Error al enviar la notificación:", error);});
    });
+
+
+   
