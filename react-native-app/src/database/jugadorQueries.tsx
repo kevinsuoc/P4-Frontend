@@ -60,20 +60,20 @@ export async function firestoreActualizarJugador(platform: string, jugador: Juga
       if (jugador.Image) jugadorData.Image = jugador.Image;
       if (jugador.Video) jugadorData.Video = jugador.Video;
   
-      console.log("J: ", jugadorData)
-      console.log("J: ", JSON.parse(JSON.stringify(jugadorData)));
-      console.log("Jugador: ", jugador)
-      console.log("Jugador: ", JSON.parse(JSON.stringify(jugador)));
+    //   console.log("J: ", jugadorData)
+    //   console.log("J: ", JSON.parse(JSON.stringify(jugadorData)));
+    //   console.log("Jugador: ", jugador)
+    //   console.log("Jugador: ", JSON.parse(JSON.stringify(jugador)));
 
-      console.log("typeof jugador.Image:", typeof jugador.Image);
-      console.log("jugador.Image === undefined:", jugador.Image === undefined);
-      console.log("jugador.Image === null:", jugador.Image === null);
-      console.log("jugador.Image === '':", jugador.Image === "");
+    //   console.log("typeof jugador.Image:", typeof jugador.Image);
+    //   console.log("jugador.Image === undefined:", jugador.Image === undefined);
+    //   console.log("jugador.Image === null:", jugador.Image === null);
+    //   console.log("jugador.Image === '':", jugador.Image === "");
 
-      console.log("typeof j.Image:", typeof jugador.Image);
-        console.log("j.Image === undefined:", jugadorData.Image === undefined);
-        console.log("j.Image === null:", jugadorData.Image === null);
-        console.log("j.Image === '':", jugadorData.Image === "");
+    //   console.log("typeof j.Image:", typeof jugador.Image);
+    //     console.log("j.Image === undefined:", jugadorData.Image === undefined);
+    //     console.log("j.Image === null:", jugadorData.Image === null);
+    //     console.log("j.Image === '':", jugadorData.Image === "");
     try {
         if (platform === "web") {
             await updateDoc(doc(getFirestore(), "jugadores", jugador.id), jugadorData);

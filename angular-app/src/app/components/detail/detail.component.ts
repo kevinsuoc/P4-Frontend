@@ -112,13 +112,11 @@ export class DetailComponent {
     try{
       if (this.selectedImageFile) {
         this.jugador.Image = await this.jugadorService.penjarACloudinary(this.selectedImageFile, 'image');
-        console.log(this.jugador.Image);
       } else {
         this.jugador.Image = this.defaultAvatar;
       }
       
       if (this.selectedVideoFile) {
-        this.jugador.Video = await this.jugadorService.penjarACloudinary(this.selectedVideoFile, 'video');
         console.log(this.jugador.Video);
       } else {
         delete this.jugador.Video;

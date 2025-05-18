@@ -3,13 +3,14 @@ import { Jugador } from '../jugador'
 import { useEffect, useState } from "react";
 import { Platform } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
-import { getFirestore, collection, onSnapshot } from 'firebase/firestore';
+import { getFirestore, collection, onSnapshot, getDocs } from 'firebase/firestore';
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { defaultJugadorImage } from "../app.config";
 import { indexStyles as listadoStyles, indexStyles } from "../styles/indexStyles";
 import messaging from '@react-native-firebase/messaging';
 import Cargando from "../componentes/Cargando";
 import { Picker } from "@react-native-picker/picker";
+import { jugadorToJson, jsonToJugador } from "../jugador";
 
 async function getFCMToken() {
   try {
@@ -36,41 +37,56 @@ export default function index() {
       return unsubscribe;
     }, []);
 
-    useEffect(() => {
-      const unsubscribe = messaging().onMessage(async remoteMessage => {
-        console.log('Received:', remoteMessage);
-      });
-  
-      return unsubscribe;
-    }, [])
-
   useEffect(() => {
-    function onResult(QuerySnapshot: any) {
-      const jugadoresData: Jugador[] = [];
-
-      QuerySnapshot.forEach((element: any) => {
-        const jugadorData = element.data();
-        jugadoresData.push({
-          ...jugadorData,
-          id: element.id,
-        });
-      });
-      
-      setNombreField(nombre as string)
-      setPosicionField(posicion as string)
-      setJugadores(jugadoresData);
-      filtarJugadores(nombre as string, posicion as string, jugadoresData);
-    }
-    
-    function onError(error: any) {console.error(error);}
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      let jugadoresNuevo = [...jugadores];
+      const data = remoteMessage.data;
+        if (!data) return
   
-    let subscriber: any;
-    if (Platform.OS === "web")
-      subscriber = onSnapshot(collection(getFirestore(), 'jugadores'), onResult, onError);
-    else
-      subscriber = firestore().collection('jugadores').onSnapshot(onResult, onError);
-    return () => subscriber;  
-  }, [])
+      if (data.type === "delete")
+       jugadoresNuevo = jugadoresNuevo.filter(j => j.id !== data.id);
+      else if (data.type === "update")
+        jugadoresNuevo = jugadoresNuevo.map(j =>
+        j.id === data.id? jsonToJugador(data): j 
+        );
+      else if ((data.type === "create"))
+      {
+        const exists = jugadoresNuevo.find(j => j.id === data.id);
+        if (!exists)
+          jugadoresNuevo.push(jsonToJugador(data));
+      }
+      setJugadores(jugadoresNuevo);
+      filtarJugadores(nombreField as string, posicionField as string, jugadoresNuevo);
+    });
+    return unsubscribe;
+  }, [jugadores, nombre, posicion, nombreField, posicionField])
+
+	useEffect(() => {
+		async function fetchJugadores() {
+			const jugadoresData: Jugador[] = [];
+			let querySnapshot;
+
+			if (Platform.OS === 'web') {
+				querySnapshot = await getDocs(collection(getFirestore(), 'jugadores'));
+			} else {
+				querySnapshot = await firestore().collection('jugadores').get();
+			}
+
+			const snapshot = querySnapshot.docs;
+			snapshot.forEach((doc: any) => {
+				const jugadorData = doc.data();
+				jugadoresData.push({
+				...jugadorData,
+				id: doc.id,
+				});
+			});
+			setNombreField(nombre as string);
+			setPosicionField(posicion as string);
+			setJugadores(jugadoresData);
+			filtarJugadores(nombre as string, posicion as string, jugadoresData);
+		}
+		fetchJugadores();
+	}, [])
 
   const filtarJugadores = (nombre: string, posicion: string, jugadores: Jugador[]) => {
     const filtrados: Jugador[] = jugadores.filter((jugador) => {

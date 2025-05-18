@@ -1,5 +1,4 @@
 {
-  "extends": "expo/tsconfig.base",
   "jsk": "react",
   "compilerOptions": {
     "target": "esnext",
@@ -24,4 +23,5 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ],
+  "extends": "expo/tsconfig.base"
 }

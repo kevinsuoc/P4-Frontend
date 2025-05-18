@@ -1,15 +1,33 @@
 import { View, Text, StyleSheet, Platform, Pressable, Image, Modal, Button, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-import { Jugador } from '@/src/jugador';
+import { Jugador, jugadorToJson } from '@/src/jugador';
 import { useState, useEffect } from 'react';
 import Cargando from '@/src/componentes/Cargando';
 import { defaultJugadorImage } from '@/src/app.config';
 import { firestoreGetJugador, firestoreBorrarJugador } from '@/src/database/jugadorQueries';
 import { formStyles } from '@/src/styles/formStyles';
+import messaging from '@react-native-firebase/messaging';
+import { jsonToJugador } from '@/src/jugador';
 
 export default function Detalle() {
     const [jugador, setJugador] = useState<Jugador | null>(null);
     const { id } = useLocalSearchParams<{ id: string }>();
+    const router = useRouter();
+
+      useEffect(() => {
+            const unsubscribe = messaging().onMessage(async remoteMessage => {
+            const data = remoteMessage.data;
+                if (!data || data.id != id)
+                    return
+            
+            if (data.type === "delete")
+                router.dismissTo('/')
+            else if (data.type === "update")
+                setJugador(jsonToJugador(data))
+            });
+            return unsubscribe;
+        }, [id, jugador])
+
 
     useEffect(() => {
         firestoreGetJugador(Platform.OS, id)
