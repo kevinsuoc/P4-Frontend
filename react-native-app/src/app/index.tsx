@@ -31,14 +31,14 @@ export default function index() {
 
   useEffect(() => {
       getFCMToken();
-      const unsubscribe = messaging().onTokenRefresh(token => {
+      const unsubscribe = messaging().onTokenRefresh((token:any) => {
         console.log('FCM Token refreshed:', token);
       });
       return unsubscribe;
     }, []);
 
   useEffect(() => {
-    const unsubscribe = messaging().onMessage(async remoteMessage => {
+    const unsubscribe = messaging().onMessage(async (remoteMessage:any) => {
       let jugadoresNuevo = [...jugadores];
       const data = remoteMessage.data;
         if (!data) return
