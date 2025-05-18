@@ -10,7 +10,7 @@ import messaging from '@react-native-firebase/messaging';
 PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
-  console.log('Message handled in the background!', remoteMessage);
+  console.log('Mensaje recibido en background: ', remoteMessage);
 });
 
 messaging()
@@ -47,7 +47,7 @@ function HomeButton() {
 
 function GitHubButton() {
   const handleGitHubButton = () => {
-      Linking.openURL('https://github.com/kevinsuoc/P3-Frontend');
+      Linking.openURL('https://github.com/kevinsuoc/P4-Frontend');
   };
 
   return (
